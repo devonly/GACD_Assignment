@@ -117,7 +117,7 @@ TIDY_DATA    <- dcast( data = MOLTEN_DATA,                                      
                        fun.aggregate = mean)                                      # and we apply mean while we are at it
 
 #/ <OUTPUT TIDY DATa TO FILE>
-write.table(TIDY_DATA, file = "./tidy_data.txt")                                  # Write tidy data to a text file in the working directory
+write.table(TIDY_DATA, file = "./tidy_data.txt", row.names = FALSE)               # Write tidy data to a text file in the working directory
 
 #/ <CLEAN UP WORK SPACE>
 rm(list=ls())  # Remove all variables

@@ -33,4 +33,4 @@ The instructions for the project were as follows
 ## How to load tidy\_data.txt
 - Place **tidy\_data.txt** file into your working directory
 - Load the data with following command
-	- `TIDY_DATA  <- read.table('./tidy_data.txt',header = TRUE)`
+	- `TIDY_DATA  <- read.table('./tidy_data.txt')`
