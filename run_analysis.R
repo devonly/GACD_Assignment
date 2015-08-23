@@ -87,15 +87,16 @@ gc()                                           # EVoke the garbage collector
 
 COLUMN_NAMES   <- colnames(FINAL_MASTER)                                  # Copy the column names into a variable
 
+
 #. Use a ton of regular expression to substitute text
 COLUMN_NAMES   <- gsub("\\()"     ,""               , COLUMN_NAMES)
 COLUMN_NAMES   <- gsub("std"      ,"StdDev"         , COLUMN_NAMES)        
 COLUMN_NAMES   <- gsub("mean"     ,"Mean"           , COLUMN_NAMES)        
 COLUMN_NAMES   <- gsub("\\-"      ,"_"              , COLUMN_NAMES)       # I just prefer underscores
 COLUMN_NAMES   <- gsub("^(t)"     ,"Time_"          , COLUMN_NAMES)       # Relabel all the t prefixes to time
-COLUMN_NAMES   <- gsub("^(f)"     ,"Freq_"          , COLUMN_NAMES)       # Relabel all the f prefixes to indicate frequency
+COLUMN_NAMES   <- gsub("^(f)"     ,"Frequency_"     , COLUMN_NAMES)       # Relabel all the f prefixes to indicate Frequency
 COLUMN_NAMES   <- gsub("Acc"      ,"_Acceleration"  , COLUMN_NAMES)       
-COLUMN_NAMES   <- gsub("Gyro"     ,"_Gyro"          , COLUMN_NAMES)       
+COLUMN_NAMES   <- gsub("Gyro"     ,"_Gyroscope"     , COLUMN_NAMES)       
 COLUMN_NAMES   <- gsub("Jerk"     ,"_Jerk"          , COLUMN_NAMES)       
 COLUMN_NAMES   <- gsub("Mag"      ,"_Magnitude"     , COLUMN_NAMES)       
 COLUMN_NAMES   <- gsub("BodyBody" ,"Body"           , COLUMN_NAMES)       # Why does the data even have BodyBody as a label?
@@ -118,6 +119,7 @@ TIDY_DATA    <- dcast( data = MOLTEN_DATA,                                      
 
 #/ <OUTPUT TIDY DATa TO FILE>
 write.table(TIDY_DATA, file = "./tidy_data.txt", row.names = FALSE)               # Write tidy data to a text file in the working directory
+
 
 #/ <CLEAN UP WORK SPACE>
 rm(list=ls())  # Remove all variables
